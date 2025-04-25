@@ -218,7 +218,7 @@ class Generator_channel(nn.Module):
     def __init__(self, num_gpu, dim):
         super(Generator_channel, self).__init__()
         self.num_gpu = num_gpu
-        self.Res_model = nn.Sequential(
+        self.model = nn.Sequential(
             nn.Linear(dim, 128),
             nn.BatchNorm1d(128),
             nn.LeakyReLU(),
@@ -236,7 +236,7 @@ class Generator_channel(nn.Module):
 
     def forward(self, input_signals, z_noise):
         G_input = torch.cat((input_signals, z_noise), dim=1)
-        x = self.Res_model(G_input)
+        x = self.model(G_input)
         logits = x
 
         return logits
