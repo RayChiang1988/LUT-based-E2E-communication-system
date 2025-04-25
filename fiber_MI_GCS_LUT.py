@@ -151,7 +151,6 @@ def fiber_nlin(input_signals, constellation_power,
     device = input_signals.device
     sigma2_noise = torch.tensor(aseNoisePower).to(device)            # ASE noise
 
-    # copy from TF claude
     intra_const = torch.from_numpy(np.expand_dims(intraConst, axis=1)).to(device)
     inter_const = torch.from_numpy(interConst).to(device)
     intra_const_add = torch.from_numpy(intraConstAdd).to(device)
