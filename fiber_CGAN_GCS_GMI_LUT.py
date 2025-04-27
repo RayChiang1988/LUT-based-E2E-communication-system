@@ -202,7 +202,7 @@ def fiber_nlin(input_signals, constellation_power,
 
     sigma2 = sigma2_noise + sigma2_nlin
     sigma2 = sigma2.cpu()
-    p.SNR_lin = (p.P0 / sigma2).item()          # get the SNR for GMI calculation
+    p.SNR_lin = (p.P0 / sigma2).item()
     noise = np.sqrt(sigma2 / 2.0) * torch.normal(mean=0.0, std=1.0, size=input_signals.shape)
     device = input_signals.device
     noise = noise.to(device)
