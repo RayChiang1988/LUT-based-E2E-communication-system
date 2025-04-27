@@ -4,7 +4,6 @@ GeoPCS on MI.
 
 Acknowledgement：
 This pytorch project is completed with the help of the claude project of Dr. Rasmus T. Jones.
-
 Express my gratitude and respect here.
 
 """
@@ -195,7 +194,7 @@ def fiber_nlin(input_signals, norm_constellation, p_s,
 
     intra_const = torch.from_numpy(np.expand_dims(intraConst, axis=1)).to(device)
     inter_const = torch.from_numpy(interConst).to(device)
-    intra_const_add = torch.from_numpy(intraConstAdd).to(device)         # modified term ?
+    intra_const_add = torch.from_numpy(intraConstAdd).to(device)
     inter_const_add = torch.from_numpy(interConstAdd).to(device)
 
     # NLIN or GN model
