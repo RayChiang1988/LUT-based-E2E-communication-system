@@ -4,7 +4,6 @@ PCS on MI.
 
 Acknowledgement：
 This pytorch project is completed with the help of the claude project of Dr. Rasmus T. Jones.
-
 Express my gratitude and respect here.
 
 """
@@ -47,10 +46,8 @@ aeParam.dtype = torch.float32
 # training Paras
 trainingParam = tu.AttrDict()
 trainingParam.gpuNum = 1    # Number of GPUs available, Use 0 for CPU mode
-# trainingParam.sampleSize = 1024 * chParam.M  # Increase for better results (especially if M>16)
-# trainingParam.batchSize = 64 * chParam.M  # Increase for better results (especially if M>16)
-trainingParam.sampleSize = 256 * chParam.M  # Increase for better results (especially if M>16)
-trainingParam.batchSize = 16 * chParam.M  # Increase for better results (especially if M>16)
+trainingParam.sampleSize = 1024 * chParam.M  # Increase for better results (especially if M>16)
+trainingParam.batchSize = 64 * chParam.M  # Increase for better results (especially if M>16)
 trainingParam.learningRate = 0.005
 trainingParam.displayStep = 50
 trainingParam.path = 'results_MI_NLIN_PCS_LUT'
@@ -180,7 +177,7 @@ def fiber_nlin(input_signals, norm_constellation, p_s,
 
     intra_const = torch.from_numpy(np.expand_dims(intraConst, axis=1)).to(device)
     inter_const = torch.from_numpy(interConst).to(device)
-    intra_const_add = torch.from_numpy(intraConstAdd).to(device)         # modified term ?
+    intra_const_add = torch.from_numpy(intraConstAdd).to(device)
     inter_const_add = torch.from_numpy(interConstAdd).to(device)
 
     # NLIN or GN model
